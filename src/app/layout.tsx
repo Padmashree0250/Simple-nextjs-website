@@ -6,15 +6,8 @@ import { ReactNode, useEffect, useState } from "react";
 export default function RootLayout({ children }: { children: ReactNode }) {
   const [mouseX, setMouseX] = useState(0);
   const [mouseY, setMouseY] = useState(0);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    // Check login status on mount
-    if (typeof window !== "undefined") {
-      const loggedIn = localStorage.getItem("isLoggedIn");
-      setIsLoggedIn(loggedIn === "true");
-    }
-
     const handleMouseMove = (e: MouseEvent) => {
       setMouseX(e.clientX);
       setMouseY(e.clientY);
