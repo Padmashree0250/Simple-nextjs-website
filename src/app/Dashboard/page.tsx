@@ -3,7 +3,6 @@ import { Dumbbell, Bike, Footprints, Volleyball } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Navbar from "../../../components/Navbar";
-import ProtectedRoute from "../ProtectedRoute";
 
 // Define the User type
 type User = {
@@ -56,7 +55,7 @@ export default function Dashboard() {
     workoutType: "cardio",
     workoutTime: "10",
   });
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage] = useState(1);
   const usersPerPage = 5;
 
   // Handle form submission
@@ -113,9 +112,6 @@ export default function Dashboard() {
   };
 
   return (
-    <ProtectedRoute>
-
-   
     <div className="flex flex-col ">
       <Navbar />
       <div className=" flex gap-4 items-center text-blue-300 mx-4 py-4 overflow-y-auto mt-4 ">
@@ -306,6 +302,5 @@ export default function Dashboard() {
         </div>
       </div>
     </div>
-    </ProtectedRoute>
   );
 }

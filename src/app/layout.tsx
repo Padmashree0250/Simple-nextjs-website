@@ -2,14 +2,11 @@
 
 import "./globals.css";
 import { ReactNode, useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import Navbar from "../../components/Navbar";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const [mouseX, setMouseX] = useState(0);
   const [mouseY, setMouseY] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const pathname = usePathname();
 
   useEffect(() => {
     // Check login status on mount
@@ -45,9 +42,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </div>
 
         <main className="relative z-10 flex flex-col">
-          {/* 🌟 Only show Navbar after login */}
-          
-
           <div>{children}</div>
         </main>
       </body>
